@@ -18,7 +18,16 @@ function colorChange4(){
 Box4.style.backgroundColor ='Yellow';
 }
 
-function greet() {
-  const name = document.getElementById('name').value;
-  document.getElementById('heading').textContent = "Hello, " + name;
+function greet(event) {
+  event.preventDefault();
+  const nameInput = document.getElementById('name');
+  const name = nameInput.value.trim(); 
+  const heading = document.getElementById('heading');
+
+  if (name === "") {
+    heading.textContent = "Hello";
+    return;
+  }
+
+  heading.textContent = "Hello, " + name + "!";
 }
